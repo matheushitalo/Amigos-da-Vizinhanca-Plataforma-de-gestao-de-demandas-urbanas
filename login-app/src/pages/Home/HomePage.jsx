@@ -1,88 +1,71 @@
-import { Link } from "react-router-dom";
-import "../Home/home.css";
-import Logo from "../../assets/logo/logo_inversed.svg";
+import { Link } from 'react-router-dom'
+
 
 export default function HomePage() {
-  const ocorrencias = [
-    { t: "BURACO NA RUA", d: "16 DE ABRIL", s: "PENDENTE" },
-    { t: "FALTA DE ILUMINAÇÃO", d: "14 DE ABRIL", s: "EM ANÁLISE" },
-    { t: "LIXO ACUMULADO", d: "12 DE ABRIL", s: "RESOLVIDO" },
-    { t: "POSTE CAÍDO", d: "10 DE ABRIL", s: "EM ANÁLISE" },
-    { t: "CALÇADA QUEBRADA", d: "08 DE ABRIL", s: "PENDENTE" },
-  ];
-
-  const badgeClass = (s) =>
-    "badge " +
-    (s === "PENDENTE"
-      ? "badge-pending"
-      : s === "RESOLVIDO"
-        ? "badge-resolved"
-        : "badge-analysis");
-
   return (
     <div className="container">
-      <header className="header" aria-label="Topo do site">
+      <div className="header">
         <div className="logo-section">
-          <img src={Logo} alt="Amigos do Bairro" className="logo-img" />
-          <div className="logo-text">
-            <h1>
-              AMIGOS DO
-              <br />
-              BAIRRO
-            </h1>
+          <div className="logo">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#4a8a5c"/>
+              <circle cx="12" cy="9" r="2.5" fill="white"/>
+              <circle cx="9" cy="11" r="1.2" fill="#4a8a5c"/>
+              <circle cx="15" cy="11" r="1.2" fill="#4a8a5c"/>
+              <circle cx="12" cy="13" r="1.2" fill="#4a8a5c"/>
+            </svg>
           </div>
+          <div className="logo-text"><h1>AMIGOS DO<br/>BAIRRO</h1></div>
         </div>
 
-        <nav className="nav-buttons" aria-label="Navegação principal">
-          <Link className="nav-btn" to="/home">
-            HOME
-          </Link>
-          <Link className="nav-btn" to="/perfil">
-            MEU PERFIL
-          </Link>
-          <Link className="nav-btn" to="/minhas-ocorrencias">
-            MINHAS OCORRÊNCIAS
-          </Link>
-          <Link className="nav-btn nav-btn--danger" to="/">
-            SAIR
-          </Link>
-        </nav>
-      </header>
-      <main className="main-content">
-        <section
-          className="occurrences-section"
-          aria-labelledby="titulo-ocorrencias"
-        >
-          <Link to="/registro" className="register-btn">
-            REGISTRAR NOVA OCORRÊNCIA
-          </Link>
+        <div className="nav-buttons">
+          <Link className="btn btn-primary" to="/home">HOME</Link>
+          <button className="btn btn-primary">MEU PERFIL</button>
+          <button className="btn btn-primary">MINHAS OCORRÊNCIAS</button>
+          <Link className="btn btn-primary" to="/">SAIR</Link>
+        </div>
+      </div>
 
-          <h2 id="titulo-ocorrencias" className="section-title">
-            OCORRÊNCIAS RECENTES
-          </h2>
+      <div className="main-content">
+        <div className="occurrences-section">
+          <Link to="/registro" className="register-btn"> REGISTRAR NOVA OCORRÊNCIA</Link>
+          <h2 className="section-title">OCORRÊNCIAS RECENTES</h2>
 
-          <div className="occurrences-list" role="list">
-            {ocorrencias.map((o, i) => (
-              <article key={i} className="occurrence-card" role="listitem">
+          <div className="occurrences-list">
+            {[
+              { t: 'BURACO NA RUA', d: '16 DE ABRIL', s: 'PENDENTE' },
+              { t: 'FALTA DE ILUMINAÇÃO', d: '14 DE ABRIL', s: 'EM ANÁLISE' },
+              { t: 'LIXO ACUMULADO', d: '12 DE ABRIL', s: 'RESOLVIDO' },
+              { t: 'POSTE CAÍDO', d: '10 DE ABRIL', s: 'EM ANÁLISE' },
+              { t: 'CALÇADA QUEBRADA', d: '08 DE ABRIL', s: 'PENDENTE' },
+            ].map((o, i) => (
+              <div key={i} className="occurrence-card">
                 <div className="occurrence-info">
                   <h3>{o.t}</h3>
                   <p>{o.d}</p>
                 </div>
-                <span className={badgeClass(o.s)} aria-label={`status: ${o.s}`}>
+                <span
+                  className={`badge ${
+                    o.s === 'PENDENTE'
+                      ? 'badge-pending'
+                      : o.s === 'RESOLVIDO'
+                      ? 'badge-resolved'
+                      : 'badge-analysis'
+                  }`}
+                >
                   {o.s}
                 </span>
-              </article>
+              </div>
             ))}
           </div>
-        </section>
+        </div>
 
-        {/* Filtros */}
-        <aside className="filter-section" aria-labelledby="titulo-filtros">
-          <h3 id="titulo-filtros">FILTRAR</h3>
+        <div className="filter-section">
+          <h3>FILTRAR</h3>
 
           <div className="filter-group">
-            <label htmlFor="bairro">BAIRRO</label>
-            <select id="bairro" className="filter-select" defaultValue="TODOS">
+            <label>BAIRRO</label>
+            <select className="filter-select">
               <option>TODOS</option>
               <option>Centro</option>
               <option>Jardim América</option>
@@ -91,8 +74,8 @@ export default function HomePage() {
           </div>
 
           <div className="filter-group">
-            <label htmlFor="tipo">TIPO</label>
-            <select id="tipo" className="filter-select" defaultValue="TODOS">
+            <label>TIPO</label>
+            <select className="filter-select">
               <option>TODOS</option>
               <option>Infraestrutura</option>
               <option>Iluminação</option>
@@ -100,8 +83,8 @@ export default function HomePage() {
             </select>
           </div>
 
-          <fieldset className="filter-group">
-            <legend>STATUS</legend>
+          <div className="filter-group">
+            <label>STATUS</label>
             <div className="checkbox-group">
               <div className="checkbox-item">
                 <input type="checkbox" defaultChecked id="pendente" />
@@ -116,9 +99,9 @@ export default function HomePage() {
                 <label htmlFor="resolvido">RESOLVIDO</label>
               </div>
             </div>
-          </fieldset>
-        </aside>
-      </main>
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }

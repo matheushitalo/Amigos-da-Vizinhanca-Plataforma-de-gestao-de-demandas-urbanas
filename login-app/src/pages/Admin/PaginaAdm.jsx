@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import "../Admin/admin.css";
+import { Link } from 'react-router-dom'
+import '../Admin/admin.css'
 
 export default function AdminPage() {
   return (
@@ -8,33 +8,22 @@ export default function AdminPage() {
         <div className="logo-section">
           <div className="logo">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path
-                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                fill="#4a8a5c"
-              />
-              <circle cx="12" cy="9" r="2.5" fill="#fff" />
-              <circle cx="9" cy="11" r="1.2" fill="#4a8a5c" />
-              <circle cx="15" cy="11" r="1.2" fill="#4a8a5c" />
-              <circle cx="12" cy="13" r="1.2" fill="#4a8a5c" />
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#4a8a5c"/>
+              <circle cx="12" cy="9" r="2.5" fill="#fff"/>
+              <circle cx="9" cy="11" r="1.2" fill="#4a8a5c"/>
+              <circle cx="15" cy="11" r="1.2" fill="#4a8a5c"/>
+              <circle cx="12" cy="13" r="1.2" fill="#4a8a5c"/>
             </svg>
           </div>
           <div className="logo-text">
-            <h1>
-              PAINEL DO
-              <br />
-              ADMINISTRADOR
-            </h1>
+            <h1>PAINEL DO<br/>ADMINISTRADOR</h1>
           </div>
         </div>
 
         <div className="nav-buttons">
-          <Link className="btn btn-primary" to="/home">
-            HOME
-          </Link>
+          <Link className="btn btn-primary" to="/home">HOME</Link>
           <button className="btn btn-secondary">CENTRAL DE OCORRÊNCIAS</button>
-          <Link className="btn btn-secondary" to="/">
-            SAIR
-          </Link>
+          <Link className="btn btn-secondary" to="/">SAIR</Link>
         </div>
       </div>
 
@@ -43,12 +32,12 @@ export default function AdminPage() {
           <h2>OCORRÊNCIAS</h2>
           <div className="occurrences-list">
             {[
-              "BURACO NA RUA",
-              "FALTA DE ILUMINAÇÃO",
-              "ACÚMULO DE LIXO",
-              "POSTE CAÍDO",
-              "CALÇADA QUEBRADA",
-              "SEMÁFORO COM DEFEITO",
+              'BURACO NA RUA',
+              'FALTA DE ILUMINAÇÃO',
+              'ACÚMULO DE LIXO',
+              'POSTE CAÍDO',
+              'CALÇADA QUEBRADA',
+              'SEMÁFORO COM DEFEITO',
             ].map((t, i) => (
               <div key={i} className="occurrence-card">
                 <div className="occurrence-info">
@@ -104,5 +93,5 @@ export default function AdminPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
