@@ -4,6 +4,7 @@ import HomePage from "./pages/Home/HomePage";
 import PaginaAdmin from "./pages/Admin/PaginaAdm";
 import Registro from "./pages/Registro/PaginaRegistro";
 import ProtectedRoute from "./components/ProtectedRoute";
+import MinhasOcorrencias from "./pages/MinhasOcorrencias/MinhasOcorrencias";
 //import './styles/style.css'
 
 export default function App() {
@@ -31,6 +32,14 @@ export default function App() {
         element={
           <ProtectedRoute>
             <Registro />
+          </ProtectedRoute>
+        }
+      />
+            <Route
+        path="/minhas-ocorrencias"
+        element={
+          <ProtectedRoute>
+            <MinhasOcorrencias />
           </ProtectedRoute>
         }
       />
