@@ -6,11 +6,11 @@
 Projeto desenvolvido para a manutenção e organizações de demandas publicas, visando praticidade e eficiencia na resolução de problemas.
 
 **Equipe responsavel:**
-*GUSTAVO FERREIRA BRAGA
-JOÃO LUCAS CORREIA GONÇALVES
-JOÃO VITOR DE SÁ MELO
-JUNIOR FRANCISCO MENDES PEREIRA
-MATHEUS HITALO BRAZ RODRIGUES
+*GUSTAVO FERREIRA BRAGA, 
+JOÃO LUCAS CORREIA GONÇALVES, 
+JOÃO VITOR DE SÁ MELO, 
+JUNIOR FRANCISCO MENDES PEREIRA, 
+MATHEUS HITALO BRAZ RODRIGUES, 
 RICARDO MARTINS SANTOS*
 
   
